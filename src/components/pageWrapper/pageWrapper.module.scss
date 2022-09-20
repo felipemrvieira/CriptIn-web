@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    max-width: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+    padding: 2rem 6rem;
+    flex: auto;
+    @media (max-width: 900px) {
+        align-items: center;
+        padding: 1rem 1rem;
+    }
+}

@@ -1,0 +1,129 @@
+$nav-height: 5.4rem;
+
+.header {
+    /* position: fixed; */
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0rem 4rem;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Comfortaa', cursive;
+    box-shadow: 0px 1px 40px 0px rgb(224 224 224 / 36%);
+    background-color: white;
+    height: $nav-height;
+    
+    @media (max-width: 768px) {
+        padding: 0rem 1rem;
+    }
+
+    .logoContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 22px;
+        background-color: black;
+        cursor: pointer;
+        @media (max-width: 450px) {
+            height: 100%;
+            padding: 10px;
+            // width: 100%;
+            span{
+                width: 100% !important;
+            }
+        }
+    }
+    
+    nav {
+        // height: 5.4rem;
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        overflow: hidden;
+        @media screen and (max-width: 900px) {
+            justify-content: flex-end;
+        }
+        a {
+           
+            display: inline-block;
+            position: relative;
+            padding: 0 0.5rem;
+            height: $nav-height;
+            line-height: $nav-height;
+            margin-right: 5rem;
+
+           
+            @media (max-width: 1050px) {
+                margin-right: 1rem;
+            }
+
+            @media screen and (max-width: 900px) {
+                display: none;
+                &.icon {
+                  float: right;
+                  display: flex;
+                  align-items: center;
+                }
+            }
+
+            font-size: 16px;
+            transition: all 0.2s ease-out;
+            cursor: pointer;
+
+    
+            &:hover {
+                font-weight: bold;
+            }
+    
+            &.active {
+               font-weight: bold;
+            }
+    
+            &.active::after {
+                content: "";
+                height: 3px;
+                border-radius: 3px 3px 0 0;
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                background-color: black;
+            }
+            
+            
+        }
+        .menuActions{
+            display: flex;
+            @media screen and (max-width: 900px) {
+                display: none;
+            }
+            flex-direction: row;
+            align-items: center;
+            .menuAction{
+                margin-right: 1rem;
+                height: auto;
+            }
+        }
+        
+        
+        
+    }
+    .navAuth{
+        justify-content: space-around;
+        @media screen and (max-width: 900px) {
+            justify-content: flex-end;        }
+    }
+    .navNoAuth{justify-content: flex-end;}
+    .icon{
+        display: none;
+        @media screen and (max-width: 900px) {
+            float: right;
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+    }
+}
+
+
+

@@ -1,0 +1,22 @@
+.container {
+    padding: 0 2rem;
+}
+
+.main {
+    padding: 4rem 0;
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+.title {
+    margin: 0;
+    line-height: 1.15;
+    font-size: 3rem;
+    text-align: center;
+}
