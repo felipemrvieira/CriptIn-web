@@ -28,25 +28,26 @@ export function AuthProvider({ children }: Props) {
     const isAuthenticated = !!user;
     const router = useRouter();
 
-    async function getUserData() {
-        const {'z-services-token': token} = parseCookies();
+    // async function getUserData() {
+    //     const {'cryptin-token': token} = parseCookies();
 
-        if (token) {
-            api.get('/profile').then(response => {
-                console.log(response.data);
-                setUser(response.data.data);
-            });
-        }
-    }
+    //     if (token) {
+    //         api.get('/profile').then(response => {
+    //             console.log(response.data);
+    //             setUser(response.data.data);
+    //         });
+    //     }
+    // }
 
-    useEffect(() => {
-        getUserData();
-    } , []);
+    // useEffect(() => {
+    //     getUserData();
+    // } , []);
 
     async function signIn({ email, password }: SignInCredentials) {
         try {
 
-            const { status, data } = await api.post("/login", {email, password});
+            const { status, data, headers } = await api.post("/auth/sign_in", {email, password});
+            console.log(headers)
 
             if (status === 200) {
                 toast.success('Usuário logado com sucesso', {
@@ -59,20 +60,26 @@ export function AuthProvider({ children }: Props) {
                     progress: undefined,
                 });
 
-                setCookie(undefined, 'z-services-token', data.token, {
+                setCookie(undefined, 'cryptin-token', headers.authorization, {
                     maxAge: 30 * 24 * 60 * 60,
                     path: '/'
                 });
 
-                getUserData();
+                const {'cryptin-token': token} = parseCookies();
+
+                // if (token) {
+                //     setUser(data);
+                //     console.log(data);
+                // }
 
                 router.push({
-                    pathname: "/companies",
+                    pathname: "/dashboard",
                 });
             }
 
         } catch (err:any) {
-            const errorMessage: string = err.response.data.message
+            console.log(err)
+            const errorMessage: string = err.response.data.errors[0]
 
             toast.error(errorMessage, {
                 position: "top-right",
@@ -92,7 +99,7 @@ export function AuthProvider({ children }: Props) {
 
            await api.delete("/logout");
 
-            destroyCookie(undefined, 'z-services-token', {
+            destroyCookie(undefined, 'cryptin-token', {
                 path: '/'
             });
             

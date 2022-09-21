@@ -36,8 +36,8 @@ const MobileMenu: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
         <header className={styles.header}>
             <div className={styles.logoContainer}>
                 <Image
-                    src="/zservices-logo.png"
-                    alt="Z Services Logo"
+                    src="/cryptin-logo.png"
+                    alt="CryptIn Logo"
                     width={168.41}
                     height={48.36}
                 />
@@ -51,14 +51,8 @@ const MobileMenu: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
             {isMenuOpen && (
             <nav className={styles.navAuth} onClick={handleCloseClick}>
                 <div >
-                    <Link href={`/companies`}>
-                        <a className={styles.active}>Empresas</a>
-                    </Link>
-                    <Link href={`/tickets`}>
-                        <a>Tickets</a>
-                    </Link>
-                    <Link href={`/users`}>
-                        <a>Usuários</a>
+                    <Link href={`/dashboard`}>
+                        <a>Dashboard</a>
                     </Link>
                 </div>
                 <div className={styles.menuActions}>

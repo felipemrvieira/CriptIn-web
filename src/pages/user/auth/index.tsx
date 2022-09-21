@@ -5,6 +5,9 @@ import type { NextPage } from "next";
 import PageWrapper from "@components/pageWrapper";
 import Card from "@components/card";
 import { AuthContext } from "@contexts/AuthContext";
+import styles from '../user.module.scss'
+import Paper from '@mui/material/Paper';
+
 
 interface InputData {
     email: string;
@@ -28,25 +31,29 @@ const Login: NextPage = () => {
 
     return (
         <PageWrapper>
-             
-            <Card >
-                <h1>Login Page</h1>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <input
-                        defaultValue={"felipemrvieira@gmail.com"}
-                        {...register("email", { required: true })}
-                    />
-                    {errors.email && <span>This field is required</span>}
+             <div className={styles.cardLogin}>
 
-                    <input
-                        defaultValue={"Teste@123"}
-                        {...register("password", { required: true })}
-                    />
-                    {errors.password && <span>This field is required</span>}
+                <Paper elevation={1}>
+                <Card >
+                    <h1>Login Page</h1>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <input
+                            defaultValue={"felipemrvieira@gmail.com"}
+                            {...register("email", { required: true })}
+                        />
+                        {errors.email && <span>This field is required</span>}
 
-                    <input type="submit" />
-                </form>
-            </Card>
+                        <input
+                            defaultValue={"Teste@123"}
+                            {...register("password", { required: true })}
+                        />
+                        {errors.password && <span>This field is required</span>}
+
+                        <input type="submit" />
+                    </form>
+                </Card>
+                </Paper>
+             </div>
         </PageWrapper>
     );
 };

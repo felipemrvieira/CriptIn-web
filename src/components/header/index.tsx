@@ -34,9 +34,9 @@ const Header: React.FC = () => {
         <header className={styles.header}>
           <div className={styles.logoContainer}>
             <Image
-              src="/zservices-logo.png"
-              alt="Z Services Logo"
-              width={168.41}
+              src="/cryptin-logo.png"
+              alt="CryptIn Logo"
+              width={160.41}
               height={48.36}
               />
           </div>
@@ -44,9 +44,7 @@ const Header: React.FC = () => {
               {isAuthenticated && (
                 <nav className={styles.navAuth}>
                     <div>
-                      <Link displayName='Empresas' route='/companies' />
-                      <Link displayName='Tickets' route='/tickets' />
-                      <Link displayName='Usuários' route='/users' />
+                      <Link displayName='Dashboard' route='/dashboard' />
                     </div>
                     <div className={styles.menuActions}>
                       <a className={styles.menuAction} onClick={handleSignOutClick}>
@@ -64,7 +62,6 @@ const Header: React.FC = () => {
               {!isAuthenticated && (
                 <nav className={styles.navNoAuth}>
                   <div className={styles.menuActions}>
-                    <div className={styles.menuAction}><SearchIcon sx={{ fontSize: 32 }} /></div>
                     <NextLink href={"/user/auth"}>
                       <a className={styles.menuAction}>
                         <CurvedButton>

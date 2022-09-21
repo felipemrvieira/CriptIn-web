@@ -1,34 +1,28 @@
-export type Company = {
-    id: number;
-    name: string;
-    tax_number: string;
-    created_at: Date;
-    employees_count: number;
-}
 
-export type Role = {
-    id: number;
-    name: string;
-};
 
 export type User = {
     id: number;
     name: string;
     email: string;
-    roles: Role[];
-    companies: Company[];
 };
 
-export type Task = {
+export type Account = {
     id: number;
+    user_id: number;
+    balance: number;
 };
 
-export type Ticket = {
+export type Coin = {
     id: number;
-    title: string;
-    description: string;
-    company: Company;
-    created_by: string;
-    status: string;
-    tasks: Task[];
+    name: string;
+    acronym: string;
+    balance: string;
 };
+
+export type Wallet = {
+    id: number;
+    how_many_coins: number;
+    account_id: number;
+    coins: Coin[];
+};
+

@@ -20,8 +20,8 @@ const Home: NextPage = () => {
             </Head>
 
             <main className={styles.main}>
-                <p className={styles.title}>{isAuthenticated ? `Welcome to Z-Services ${user?.email}` : "Not logged in"}</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo voluptates doloremque, earum dolores porro expedita! Debitis quia quam repudiandae tenetur porro nisi aut impedit, aliquid sunt tempora sit molestiae itaque.</p>
+                <p className={styles.title}>{isAuthenticated ? `Welcome to Cryptin ${user?.email}` : "Realize login"}</p>
+                <p>Entre com suas credenciais para ter acesso ao recursos da plataforma</p>
             </main>
         </PageWrapper>
     );
