@@ -11,10 +11,10 @@ const Home: NextPage = () => {
     return (
         <PageWrapper>
             <Head>
-                <title>Z Services</title>
+                <title>Cryptin</title>
                 <meta
                     name="description"
-                    content="Z Services"
+                    content="Cryptin"
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
