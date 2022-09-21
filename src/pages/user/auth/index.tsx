@@ -41,13 +41,13 @@ const Login: NextPage = () => {
                             defaultValue={"felipemrvieira@gmail.com"}
                             {...register("email", { required: true })}
                         />
-                        {errors.email && <span>This field is required</span>}
+                        {errors.email && <span>este campo é obrigatório</span>}
 
                         <input
-                            defaultValue={"Teste@123"}
+                            defaultValue={"123123"}
                             {...register("password", { required: true })}
                         />
-                        {errors.password && <span>This field is required</span>}
+                        {errors.password && <span>este campo é obrigatório</span>}
 
                         <input type="submit" />
                     </form>
